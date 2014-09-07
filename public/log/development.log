@@ -1,0 +1,2362 @@
+  [1m[36m (36.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (18.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreatePosts (20140825134552)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140825134552"]]
+  [1m[35m (26.4ms)[0m  commit transaction
+Migrating to CreateComments (20140825134627)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer, "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140825134627"]]
+  [1m[35m (12.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 74.71.82.114 at 2014-08-31 22:42:32 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (8.7ms)
+Completed 200 OK in 73ms (Views: 50.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 74.71.82.114 at 2014-08-31 23:17:11 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
+Completed 200 OK in 31ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/post" for 74.71.82.114 at 2014-08-31 23:17:32 +0000
+
+ActionController::RoutingError (No route matches [GET] "/post"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/action/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/action/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/action/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.1ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (27.5ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (92.8ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-08-31 23:18:02 +0000
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 4ms
+
+NoMethodError (undefined method `many' for #<Class:0x007f28f915c498>):
+  app/models/post.rb:2:in `<class:Post>'
+  app/models/post.rb:1:in `<top (required)>'
+  app/controllers/posts_controller.rb:7:in `index'
+
+
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (42.3ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-08-31 23:22:04 +0000
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 4ms
+
+NoMethodError (undefined method `many' for #<Class:0x007f28f932f4a0>):
+  app/models/post.rb:2:in `<class:Post>'
+  app/models/post.rb:1:in `<top (required)>'
+  app/controllers/posts_controller.rb:7:in `index'
+
+
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (24.4ms)
+
+
+Started GET "/" for 74.71.82.114 at 2014-08-31 23:23:34 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (2.5ms)
+Completed 200 OK in 32ms (Views: 10.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/post" for 74.71.82.114 at 2014-08-31 23:23:45 +0000
+
+ActionController::RoutingError (No route matches [GET] "/post"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/action/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/action/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/action/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.6ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (8.4ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (44.2ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-08-31 23:23:51 +0000
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 3ms
+
+NameError (undefined local variable or method `dependent' for #<Class:0x007f27546e6ab8>):
+  app/models/post.rb:2:in `<class:Post>'
+  app/models/post.rb:1:in `<top (required)>'
+  app/controllers/posts_controller.rb:7:in `index'
+
+
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (23.8ms)
+
+
+Started GET "/" for 74.71.82.114 at 2014-08-31 23:48:40 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (2.4ms)
+Completed 200 OK in 32ms (Views: 10.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-08-31 23:48:47 +0000
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 1260ms (Views: 1256.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-08-31 23:48:48 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-08-31 23:48:49 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 74.71.82.114 at 2014-08-31 23:48:49 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-08-31 23:48:49 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 74.71.82.114 at 2014-08-31 23:48:49 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 74.71.82.114 at 2014-08-31 23:48:49 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 74.71.82.114 at 2014-08-31 23:48:49 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-08-31 23:48:49 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-08-31 23:48:49 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-08-31 23:48:49 +0000
+
+
+Started GET "/posts/new" for 74.71.82.114 at 2014-08-31 23:48:54 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (85.9ms)
+  Rendered posts/new.html.erb within layouts/application (91.2ms)
+Completed 200 OK in 102ms (Views: 99.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/posts" for 74.71.82.114 at 2014-08-31 23:49:25 +0000
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kmbY7s8fNLrjmguKfQ4UpTlBHPmAxvQzsCnCIldVTPA=", "post"=>{"title"=>"My first post", "body"=>"I am learning Ruby on Rails."}, "commit"=>"Create Post"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at") VALUES (?, ?, ?, ?)  [["body", "I am learning Ruby on Rails."], ["created_at", "2014-08-31 23:49:25.947109"], ["title", "My first post"], ["updated_at", "2014-08-31 23:49:25.947109"]]
+  [1m[36m (40.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://ruby-137696.use1-2.nitrousbox.com/posts/1
+Completed 302 Found in 67ms (ActiveRecord: 41.4ms)
+
+
+Started GET "/posts/1" for 74.71.82.114 at 2014-08-31 23:49:26 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 12ms (Views: 8.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-08-31 23:49:31 +0000
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/new" for 74.71.82.114 at 2014-08-31 23:49:33 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (2.3ms)
+  Rendered posts/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 74.71.82.114 at 2014-08-31 23:50:49 +0000
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kmbY7s8fNLrjmguKfQ4UpTlBHPmAxvQzsCnCIldVTPA=", "post"=>{"title"=>"My Second Post", "body"=>"Rails is an interesting framework."}, "commit"=>"Create Post"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "Rails is an interesting framework."], ["created_at", "2014-08-31 23:50:49.514823"], ["title", "My Second Post"], ["updated_at", "2014-08-31 23:50:49.514823"]]
+  [1m[35m (30.5ms)[0m  commit transaction
+Redirected to http://ruby-137696.use1-2.nitrousbox.com/posts/2
+Completed 302 Found in 34ms (ActiveRecord: 31.0ms)
+
+
+Started GET "/posts/2" for 74.71.82.114 at 2014-08-31 23:50:49 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered posts/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-08-31 23:50:52 +0000
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/post" for 74.71.82.114 at 2014-08-31 23:51:01 +0000
+
+ActionController::RoutingError (No route matches [GET] "/post"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/action/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/action/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/action/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.2ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.7ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (32.7ms)
+
+
+Started GET "/comments" for 74.71.82.114 at 2014-08-31 23:51:09 +0000
+Processing by CommentsController#index as HTML
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 12ms (Views: 9.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/comments/new" for 74.71.82.114 at 2014-08-31 23:51:17 +0000
+Processing by CommentsController#new as HTML
+  Rendered comments/_form.html.erb (13.1ms)
+  Rendered comments/new.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 74.71.82.114 at 2014-09-01 00:30:13 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (2.6ms)
+Completed 200 OK in 35ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-01 00:30:31 +0000
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 99ms (Views: 96.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-01 00:30:42 +0000
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/comments" for 74.71.82.114 at 2014-09-01 00:32:13 +0000
+Processing by CommentsController#index as HTML
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 12ms (Views: 9.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/comments/new" for 74.71.82.114 at 2014-09-01 00:32:15 +0000
+Processing by CommentsController#new as HTML
+  Rendered comments/_form.html.erb (48.0ms)
+  Rendered comments/new.html.erb within layouts/application (52.9ms)
+Completed 200 OK in 62ms (Views: 60.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments" for 74.71.82.114 at 2014-09-01 00:32:27 +0000
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kmbY7s8fNLrjmguKfQ4UpTlBHPmAxvQzsCnCIldVTPA=", "comment"=>{"post_id"=>"1", "body"=>"Great post!"}, "commit"=>"Create Comment"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "comments" ("body", "created_at", "post_id", "updated_at") VALUES (?, ?, ?, ?)  [["body", "Great post!"], ["created_at", "2014-09-01 00:32:27.531759"], ["post_id", 1], ["updated_at", "2014-09-01 00:32:27.531759"]]
+  [1m[36m (20.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://ruby-137696.use1-2.nitrousbox.com/comments/1
+Completed 302 Found in 28ms (ActiveRecord: 21.3ms)
+
+
+Started GET "/comments/1" for 74.71.82.114 at 2014-09-01 00:32:27 +0000
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 11ms (Views: 8.2ms | ActiveRecord: 0.3ms)
+  [1m[36mPost Load (2.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+
+
+Started GET "/" for 74.71.82.114 at 2014-09-01 01:12:31 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
+Completed 200 OK in 32ms (Views: 10.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-01 01:12:38 +0000
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 87ms (Views: 54.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-01 01:12:38 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-01 01:12:38 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 74.71.82.114 at 2014-09-01 01:12:38 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 74.71.82.114 at 2014-09-01 01:12:38 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-01 01:12:39 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 74.71.82.114 at 2014-09-01 01:12:39 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-01 01:12:39 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-01 01:12:39 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 74.71.82.114 at 2014-09-01 01:12:39 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-01 01:12:39 +0000
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-01 01:12:49 +0000
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/1" for 74.71.82.114 at 2014-09-01 01:13:01 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 14ms (Views: 11.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/2" for 74.71.82.114 at 2014-09-01 01:13:08 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered posts/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.2ms)
+  [1m[36mPost Load (2.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[36mPost Load (2.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+
+
+Started GET "/" for 74.71.82.114 at 2014-09-01 02:08:40 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
+Completed 200 OK in 32ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 74.71.82.114 at 2014-09-01 02:08:48 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-01 02:08:59 +0000
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 57ms (Views: 50.9ms | ActiveRecord: 0.6ms)
+  [1m[36mPost Load (2.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mPost Load (2.1ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+
+
+Started GET "/" for 74.71.82.114 at 2014-09-01 03:06:18 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
+Completed 200 OK in 31ms (Views: 9.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/1/comments" for 74.71.82.114 at 2014-09-01 03:06:32 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 60ms (Views: 53.9ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM schema_migrations[0m
+
+
+Started GET "/" for 74.71.82.114 at 2014-09-01 03:23:40 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (2.2ms)
+Completed 200 OK in 32ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/1/comments" for 74.71.82.114 at 2014-09-01 03:24:02 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 57ms (Views: 50.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/" for 74.71.82.114 at 2014-09-01 03:24:10 +0000
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 20ms (Views: 13.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/comments/" for 74.71.82.114 at 2014-09-01 03:24:20 +0000
+Processing by CommentsController#index as HTML
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/comments/new" for 74.71.82.114 at 2014-09-01 03:24:25 +0000
+Processing by CommentsController#new as HTML
+  Rendered comments/_form.html.erb (19.0ms)
+  Rendered comments/new.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 32ms (Views: 30.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/comments" for 74.71.82.114 at 2014-09-01 03:24:39 +0000
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kmbY7s8fNLrjmguKfQ4UpTlBHPmAxvQzsCnCIldVTPA=", "comment"=>{"post_id"=>"2", "body"=>"Very good."}, "commit"=>"Create Comment"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "comments" ("body", "created_at", "post_id", "updated_at") VALUES (?, ?, ?, ?)  [["body", "Very good."], ["created_at", "2014-09-01 03:24:39.880762"], ["post_id", 2], ["updated_at", "2014-09-01 03:24:39.880762"]]
+  [1m[36m (45.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://ruby-137696.use1-2.nitrousbox.com/comments/2
+Completed 302 Found in 53ms (ActiveRecord: 46.1ms)
+
+
+Started GET "/comments/2" for 74.71.82.114 at 2014-09-01 03:24:40 +0000
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered comments/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 12ms (Views: 8.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/2" for 74.71.82.114 at 2014-09-01 03:24:55 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered posts/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/2/comments" for 74.71.82.114 at 2014-09-01 03:25:06 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"2"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/1/comments" for 74.71.82.114 at 2014-09-01 03:25:30 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/1/" for 74.71.82.114 at 2014-09-01 03:26:00 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/2/" for 74.71.82.114 at 2014-09-01 03:26:05 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered posts/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 10ms (Views: 7.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/2/comments" for 74.71.82.114 at 2014-09-01 03:26:15 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"2"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.3ms)
+  [1m[36mPost Load (2.1ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+
+
+Started GET "/" for 74.71.82.114 at 2014-09-01 03:51:02 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
+Completed 200 OK in 31ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/1/comments" for 74.71.82.114 at 2014-09-01 03:51:16 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 56ms (Views: 50.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/comments/new" for 74.71.82.114 at 2014-09-01 03:51:31 +0000
+Processing by CommentsController#new as HTML
+  Rendered comments/_form.html.erb (18.9ms)
+  Rendered comments/new.html.erb within layouts/application (23.2ms)
+Completed 200 OK in 31ms (Views: 30.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/comments" for 74.71.82.114 at 2014-09-01 03:51:54 +0000
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kmbY7s8fNLrjmguKfQ4UpTlBHPmAxvQzsCnCIldVTPA=", "comment"=>{"post_id"=>"1", "body"=>"Good."}, "commit"=>"Create Comment"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "comments" ("body", "created_at", "post_id", "updated_at") VALUES (?, ?, ?, ?)  [["body", "Good."], ["created_at", "2014-09-01 03:51:54.993854"], ["post_id", 1], ["updated_at", "2014-09-01 03:51:54.993854"]]
+  [1m[36m (28.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://ruby-137696.use1-2.nitrousbox.com/comments/3
+Completed 302 Found in 36ms (ActiveRecord: 29.1ms)
+
+
+Started GET "/comments/3" for 74.71.82.114 at 2014-09-01 03:51:55 +0000
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered comments/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 11ms (Views: 8.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/1/comments" for 74.71.82.114 at 2014-09-01 03:52:10 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-01 03:52:10 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 74.71.82.114 at 2014-09-01 03:52:10 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-01 03:52:10 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-01 03:52:10 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 74.71.82.114 at 2014-09-01 03:52:10 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 74.71.82.114 at 2014-09-01 03:52:10 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 74.71.82.114 at 2014-09-01 03:52:10 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-01 03:52:10 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-01 03:52:10 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-01 03:52:10 +0000
+
+
+Started GET "/posts/1/comments" for 74.71.82.114 at 2014-09-01 03:52:10 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/2/comments" for 74.71.82.114 at 2014-09-01 03:52:27 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"2"}
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 74.71.82.114 at 2014-09-01 03:56:27 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
+Completed 200 OK in 31ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-01 03:56:33 +0000
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 8ms
+
+NoMethodError (undefined method `_of' for #<Class:0x007ff88ca4b398>):
+  app/models/post.rb:3:in `<class:Post>'
+  app/models/post.rb:1:in `<top (required)>'
+  app/controllers/posts_controller.rb:7:in `index'
+
+
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (24.9ms)
+
+
+Started GET "/posts/1/comments" for 74.71.82.114 at 2014-09-01 03:59:47 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[35mComment Load (0.6ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 58ms (Views: 51.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-01 03:59:53 +0000
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 5ms
+
+NoMethodError (undefined method `_of' for #<Class:0x000000047ead70>):
+  app/models/post.rb:3:in `<class:Post>'
+  app/models/post.rb:1:in `<top (required)>'
+  app/controllers/posts_controller.rb:7:in `index'
+
+
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (24.8ms)
+
+
+Started GET "/" for 74.71.82.114 at 2014-09-01 04:01:51 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
+Completed 200 OK in 31ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-01 04:01:59 +0000
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 8ms
+
+NoMethodError (undefined method `_of' for #<Class:0x007fcf549ba818>):
+  app/models/post.rb:3:in `<class:Post>'
+  app/models/post.rb:1:in `<top (required)>'
+  app/controllers/posts_controller.rb:7:in `index'
+
+
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.0ms)
+
+
+Started GET "/posts/1/comments" for 74.71.82.114 at 2014-09-01 04:02:07 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 58ms (Views: 51.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-01 04:02:07 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-01 04:02:07 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 74.71.82.114 at 2014-09-01 04:02:07 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 74.71.82.114 at 2014-09-01 04:02:07 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-01 04:02:07 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 74.71.82.114 at 2014-09-01 04:02:07 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-01 04:02:07 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 74.71.82.114 at 2014-09-01 04:02:07 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-01 04:02:07 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-01 04:02:07 +0000
+
+
+Started GET "/posts/1/comments" for 74.71.82.114 at 2014-09-01 04:02:09 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/1/" for 74.71.82.114 at 2014-09-01 04:02:17 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 5ms
+
+NoMethodError (undefined method `_of' for #<Class:0x000000046ef2e0>):
+  app/models/post.rb:3:in `<class:Post>'
+  app/models/post.rb:1:in `<top (required)>'
+  app/controllers/posts_controller.rb:67:in `set_post'
+
+
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.8ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-01 04:02:25 +0000
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 5ms
+
+NoMethodError (undefined method `_of' for #<Class:0x0000000376ebb8>):
+  app/models/post.rb:3:in `<class:Post>'
+  app/models/post.rb:1:in `<top (required)>'
+  app/controllers/posts_controller.rb:7:in `index'
+
+
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.6ms)
+
+
+Started GET "/" for 74.71.82.114 at 2014-09-01 04:04:43 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
+Completed 200 OK in 31ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-01 04:04:49 +0000
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 58ms (Views: 50.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/new" for 74.71.82.114 at 2014-09-01 04:04:52 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (18.4ms)
+  Rendered posts/new.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 32ms (Views: 30.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 74.71.82.114 at 2014-09-01 04:05:06 +0000
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kmbY7s8fNLrjmguKfQ4UpTlBHPmAxvQzsCnCIldVTPA=", "post"=>{"title"=>"My 3rd Post", "body"=>""}, "commit"=>"Create Post"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered posts/_form.html.erb (3.5ms)
+  Rendered posts/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 16ms (Views: 12.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/comments" for 74.71.82.114 at 2014-09-01 04:05:19 +0000
+Processing by CommentsController#index as HTML
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 20ms (Views: 13.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/comments/new" for 74.71.82.114 at 2014-09-01 04:05:22 +0000
+Processing by CommentsController#new as HTML
+  Rendered comments/_form.html.erb (4.5ms)
+  Rendered comments/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 15ms (Views: 14.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/comments" for 74.71.82.114 at 2014-09-01 04:05:30 +0000
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kmbY7s8fNLrjmguKfQ4UpTlBHPmAxvQzsCnCIldVTPA=", "comment"=>{"post_id"=>"", "body"=>""}, "commit"=>"Create Comment"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered comments/_form.html.erb (5.0ms)
+  Rendered comments/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 17ms (Views: 13.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 74.71.82.114 at 2014-09-01 04:20:36 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
+Completed 200 OK in 32ms (Views: 10.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-01 04:20:43 +0000
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 58ms (Views: 50.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/1/comments" for 74.71.82.114 at 2014-09-01 04:20:54 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 20ms (Views: 13.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-01 04:20:54 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-01 04:20:54 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 74.71.82.114 at 2014-09-01 04:20:54 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-01 04:20:54 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 74.71.82.114 at 2014-09-01 04:20:54 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 74.71.82.114 at 2014-09-01 04:20:54 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 74.71.82.114 at 2014-09-01 04:20:54 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-01 04:20:54 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-01 04:20:54 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-01 04:20:54 +0000
+
+
+Started GET "/posts/1/comments" for 74.71.82.114 at 2014-09-01 04:20:56 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.3ms)
+  [1m[36mPost Load (2.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+
+
+Started GET "/" for 74.71.82.114 at 2014-09-01 04:36:17 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
+Completed 200 OK in 32ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-01 04:36:28 +0000
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 58ms (Views: 50.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/1/comments" for 74.71.82.114 at 2014-09-01 04:36:38 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 21ms (Views: 14.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-01 04:36:38 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-01 04:36:38 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 74.71.82.114 at 2014-09-01 04:36:39 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-01 04:36:39 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 74.71.82.114 at 2014-09-01 04:36:39 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 74.71.82.114 at 2014-09-01 04:36:39 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 74.71.82.114 at 2014-09-01 04:36:39 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-01 04:36:39 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-01 04:36:39 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-01 04:36:39 +0000
+
+
+Started GET "/posts/1/comments" for 74.71.82.114 at 2014-09-01 04:36:44 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/comments/3" for 74.71.82.114 at 2014-09-01 04:37:00 +0000
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"kmbY7s8fNLrjmguKfQ4UpTlBHPmAxvQzsCnCIldVTPA=", "id"=>"3"}
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 3]]
+  [1m[35m (71.5ms)[0m  commit transaction
+Redirected to http://ruby-137696.use1-2.nitrousbox.com/comments
+Completed 302 Found in 80ms (ActiveRecord: 72.4ms)
+
+
+Started GET "/comments" for 74.71.82.114 at 2014-09-01 04:37:00 +0000
+Processing by CommentsController#index as HTML
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/comments/2" for 74.71.82.114 at 2014-09-01 04:37:02 +0000
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"kmbY7s8fNLrjmguKfQ4UpTlBHPmAxvQzsCnCIldVTPA=", "id"=>"2"}
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "comments" WHERE "comments"."id" = ?  [["id", 2]]
+  [1m[36m (58.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://ruby-137696.use1-2.nitrousbox.com/comments
+Completed 302 Found in 62ms (ActiveRecord: 59.4ms)
+
+
+Started GET "/comments" for 74.71.82.114 at 2014-09-01 04:37:03 +0000
+Processing by CommentsController#index as HTML
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/comments/1" for 74.71.82.114 at 2014-09-01 04:37:05 +0000
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"kmbY7s8fNLrjmguKfQ4UpTlBHPmAxvQzsCnCIldVTPA=", "id"=>"1"}
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 1]]
+  [1m[35m (86.9ms)[0m  commit transaction
+Redirected to http://ruby-137696.use1-2.nitrousbox.com/comments
+Completed 302 Found in 90ms (ActiveRecord: 87.5ms)
+
+
+Started GET "/comments" for 74.71.82.114 at 2014-09-01 04:37:05 +0000
+Processing by CommentsController#index as HTML
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-01 04:37:11 +0000
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/comments" for 74.71.82.114 at 2014-09-01 04:37:31 +0000
+Processing by CommentsController#index as HTML
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-01 04:37:31 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-01 04:37:31 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 74.71.82.114 at 2014-09-01 04:37:31 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 74.71.82.114 at 2014-09-01 04:37:31 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 74.71.82.114 at 2014-09-01 04:37:31 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-01 04:37:31 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-01 04:37:31 +0000
+
+
+Started GET "/comments" for 74.71.82.114 at 2014-09-01 04:37:32 +0000
+Processing by CommentsController#index as HTML
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/comments/new" for 74.71.82.114 at 2014-09-01 04:37:33 +0000
+Processing by CommentsController#new as HTML
+  Rendered comments/_form.html.erb (21.6ms)
+  Rendered comments/new.html.erb within layouts/application (26.3ms)
+Completed 200 OK in 35ms (Views: 34.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/comments" for 74.71.82.114 at 2014-09-01 04:37:42 +0000
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kmbY7s8fNLrjmguKfQ4UpTlBHPmAxvQzsCnCIldVTPA=", "comment"=>{"post_id"=>"1", "body"=>"Great!"}, "commit"=>"Create Comment"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "comments" ("body", "created_at", "post_id", "updated_at") VALUES (?, ?, ?, ?)  [["body", "Great!"], ["created_at", "2014-09-01 04:37:42.874778"], ["post_id", 1], ["updated_at", "2014-09-01 04:37:42.874778"]]
+  [1m[36m (62.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://ruby-137696.use1-2.nitrousbox.com/comments/4
+Completed 302 Found in 67ms (ActiveRecord: 62.6ms)
+
+
+Started GET "/comments/4" for 74.71.82.114 at 2014-09-01 04:37:43 +0000
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered comments/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts1/comments" for 74.71.82.114 at 2014-09-01 04:38:04 +0000
+
+ActionController::RoutingError (No route matches [GET] "/posts1/comments"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/action/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/action/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/action/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.8ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.8ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (38.7ms)
+
+
+Started GET "/posts/1/comments" for 74.71.82.114 at 2014-09-01 04:38:18 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-01 04:38:18 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-01 04:38:18 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 74.71.82.114 at 2014-09-01 04:38:18 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-01 04:38:18 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 74.71.82.114 at 2014-09-01 04:38:18 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 74.71.82.114 at 2014-09-01 04:38:18 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 74.71.82.114 at 2014-09-01 04:38:18 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-01 04:38:18 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-01 04:38:18 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-01 04:38:18 +0000
+
+
+Started GET "/posts/1/comments" for 74.71.82.114 at 2014-09-01 04:38:21 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/1/" for 74.71.82.114 at 2014-09-01 04:38:27 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/comments" for 74.71.82.114 at 2014-09-01 04:38:34 +0000
+Processing by CommentsController#index as HTML
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-01 04:38:34 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-01 04:38:34 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 74.71.82.114 at 2014-09-01 04:38:34 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-01 04:38:34 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 74.71.82.114 at 2014-09-01 04:38:34 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 74.71.82.114 at 2014-09-01 04:38:35 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-01 04:38:35 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 74.71.82.114 at 2014-09-01 04:38:35 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-01 04:38:35 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-01 04:38:35 +0000
+
+
+Started GET "/comments" for 74.71.82.114 at 2014-09-01 04:38:36 +0000
+Processing by CommentsController#index as HTML
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/comments/new" for 74.71.82.114 at 2014-09-01 04:38:38 +0000
+Processing by CommentsController#new as HTML
+  Rendered comments/_form.html.erb (2.3ms)
+  Rendered comments/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/comments" for 74.71.82.114 at 2014-09-01 04:38:52 +0000
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kmbY7s8fNLrjmguKfQ4UpTlBHPmAxvQzsCnCIldVTPA=", "comment"=>{"post_id"=>"2", "body"=>"Very good."}, "commit"=>"Create Comment"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "comments" ("body", "created_at", "post_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "Very good."], ["created_at", "2014-09-01 04:38:52.648582"], ["post_id", 2], ["updated_at", "2014-09-01 04:38:52.648582"]]
+  [1m[35m (31.0ms)[0m  commit transaction
+Redirected to http://ruby-137696.use1-2.nitrousbox.com/comments/5
+Completed 302 Found in 35ms (ActiveRecord: 31.5ms)
+
+
+Started GET "/comments/5" for 74.71.82.114 at 2014-09-01 04:38:52 +0000
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered comments/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 9ms (Views: 7.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/1/comments" for 74.71.82.114 at 2014-09-01 04:39:01 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-01 04:39:01 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 74.71.82.114 at 2014-09-01 04:39:01 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 74.71.82.114 at 2014-09-01 04:39:01 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-01 04:39:01 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-01 04:39:01 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 74.71.82.114 at 2014-09-01 04:39:01 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 74.71.82.114 at 2014-09-01 04:39:01 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-01 04:39:02 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-01 04:39:02 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-01 04:39:02 +0000
+
+
+Started GET "/posts/1/comments" for 74.71.82.114 at 2014-09-01 04:39:04 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.3ms)
+  [1m[36mPost Load (2.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+
+
+Started GET "/" for 74.71.82.114 at 2014-09-01 12:33:50 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
+Completed 200 OK in 31ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-01 12:33:57 +0000
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 59ms (Views: 52.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-01 12:33:57 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 74.71.82.114 at 2014-09-01 12:33:57 +0000
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-01 12:33:57 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 74.71.82.114 at 2014-09-01 12:33:57 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-01 12:33:57 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 74.71.82.114 at 2014-09-01 12:33:57 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 74.71.82.114 at 2014-09-01 12:33:57 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-01 12:33:57 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-01 12:33:57 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-01 12:33:57 +0000
+
+
+Started GET "/comments" for 74.71.82.114 at 2014-09-01 12:34:10 +0000
+Processing by CommentsController#index as HTML
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 22ms (Views: 14.7ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/comments/5" for 74.71.82.114 at 2014-09-01 12:34:15 +0000
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mMYFrMTPex7c0x/n6aYNoB/UyNmqPI7VOkuCOvIq+a0=", "id"=>"5"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "comments" WHERE "comments"."id" = ?  [["id", 5]]
+  [1m[36m (21.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://ruby-137696.use1-2.nitrousbox.com/comments
+Completed 302 Found in 29ms (ActiveRecord: 22.4ms)
+
+
+Started GET "/comments" for 74.71.82.114 at 2014-09-01 12:34:15 +0000
+Processing by CommentsController#index as HTML
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/comments/4" for 74.71.82.114 at 2014-09-01 12:34:18 +0000
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mMYFrMTPex7c0x/n6aYNoB/UyNmqPI7VOkuCOvIq+a0=", "id"=>"4"}
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 4]]
+  [1m[35m (19.1ms)[0m  commit transaction
+Redirected to http://ruby-137696.use1-2.nitrousbox.com/comments
+Completed 302 Found in 23ms (ActiveRecord: 19.7ms)
+
+
+Started GET "/comments" for 74.71.82.114 at 2014-09-01 12:34:18 +0000
+Processing by CommentsController#index as HTML
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 74.71.82.114 at 2014-09-01 23:35:08 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (2.4ms)
+Completed 200 OK in 32ms (Views: 10.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/1/comments" for 74.71.82.114 at 2014-09-01 23:35:25 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 52ms (Views: 45.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/1" for 74.71.82.114 at 2014-09-01 23:35:37 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 21ms (Views: 8.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-01 23:35:51 +0000
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/posts/2" for 74.71.82.114 at 2014-09-01 23:36:05 +0000
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mMYFrMTPex7c0x/n6aYNoB/UyNmqPI7VOkuCOvIq+a0=", "id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE "posts"."post_id" = ?[0m  [[nil, 2]]
+SQLite3::SQLException: no such column: posts.post_id: SELECT "posts".* FROM "posts"  WHERE "posts"."post_id" = ?
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 39ms
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: posts.post_id: SELECT "posts".* FROM "posts"  WHERE "posts"."post_id" = ?):
+  app/controllers/posts_controller.rb:57:in `destroy'
+
+
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (27.1ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-01 23:36:59 +0000
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 74.71.82.114 at 2014-09-01 23:37:54 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
+Completed 200 OK in 32ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-01 23:38:02 +0000
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 58ms (Views: 51.0ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/posts/2" for 74.71.82.114 at 2014-09-01 23:38:14 +0000
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mMYFrMTPex7c0x/n6aYNoB/UyNmqPI7VOkuCOvIq+a0=", "id"=>"2"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE "posts"."post_id" = ?[0m  [[nil, 2]]
+SQLite3::SQLException: no such column: posts.post_id: SELECT "posts".* FROM "posts"  WHERE "posts"."post_id" = ?
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 18ms
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: posts.post_id: SELECT "posts".* FROM "posts"  WHERE "posts"."post_id" = ?):
+  app/controllers/posts_controller.rb:57:in `destroy'
+
+
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (23.8ms)
+
+
+Started GET "/" for 74.71.82.114 at 2014-09-01 23:42:01 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-01 23:42:09 +0000
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 19ms (Views: 13.9ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/posts/2" for 74.71.82.114 at 2014-09-01 23:42:14 +0000
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mMYFrMTPex7c0x/n6aYNoB/UyNmqPI7VOkuCOvIq+a0=", "id"=>"2"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"  WHERE "posts"."post_id" = ?  [[nil, 2]]
+SQLite3::SQLException: no such column: posts.post_id: SELECT "posts".* FROM "posts"  WHERE "posts"."post_id" = ?
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 500 Internal Server Error in 5ms
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: posts.post_id: SELECT "posts".* FROM "posts"  WHERE "posts"."post_id" = ?):
+  app/controllers/posts_controller.rb:57:in `destroy'
+
+
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.1ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM schema_migrations[0m
+
+
+Started GET "/" for 74.71.82.114 at 2014-09-02 00:31:36 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (2.2ms)
+Completed 200 OK in 31ms (Views: 9.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-02 00:31:44 +0000
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 2ms
+
+SyntaxError (/home/action/workspace/blog/app/models/post.rb:2: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+  has_many :comments, dependent :destroy
+                                 ^):
+  app/models/post.rb:2: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+  app/controllers/posts_controller.rb:7:in `index'
+
+
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (24.4ms)
+
+
+Started GET "/" for 74.71.82.114 at 2014-09-02 00:33:10 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-02 00:33:15 +0000
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 58ms (Views: 50.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-02 00:33:16 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 74.71.82.114 at 2014-09-02 00:33:16 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-02 00:33:16 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 74.71.82.114 at 2014-09-02 00:33:16 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 74.71.82.114 at 2014-09-02 00:33:16 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 74.71.82.114 at 2014-09-02 00:33:16 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-02 00:33:16 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-02 00:33:16 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-02 00:33:16 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-02 00:33:16 +0000
+
+
+Started DELETE "/posts/2" for 74.71.82.114 at 2014-09-02 00:33:21 +0000
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ObH5JzfiKqV60jC41hOQ+V4BKO/V72xPy7Z/5QkQiis=", "id"=>"2"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = ?[0m  [["post_id", 2]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = ?  [["id", 2]]
+  [1m[36m (21.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://ruby-137696.use1-2.nitrousbox.com/posts
+Completed 302 Found in 46ms (ActiveRecord: 22.5ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-02 00:33:21 +0000
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-02 00:33:21 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-02 00:33:22 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-02 00:33:22 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-02 00:33:22 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-02 00:33:22 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-02 00:33:22 +0000
+
+
+Started GET "/posts/new" for 74.71.82.114 at 2014-09-02 00:33:28 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (20.0ms)
+  Rendered posts/new.html.erb within layouts/application (25.1ms)
+Completed 200 OK in 34ms (Views: 33.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 74.71.82.114 at 2014-09-02 00:33:56 +0000
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ObH5JzfiKqV60jC41hOQ+V4BKO/V72xPy7Z/5QkQiis=", "post"=>{"title"=>"My Second Post", "body"=>"Rails is a useful framework."}, "commit"=>"Create Post"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at") VALUES (?, ?, ?, ?)  [["body", "Rails is a useful framework."], ["created_at", "2014-09-02 00:33:56.560879"], ["title", "My Second Post"], ["updated_at", "2014-09-02 00:33:56.560879"]]
+  [1m[36m (18.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://ruby-137696.use1-2.nitrousbox.com/posts/3
+Completed 302 Found in 23ms (ActiveRecord: 19.2ms)
+
+
+Started GET "/posts/3" for 74.71.82.114 at 2014-09-02 00:33:56 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered posts/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-02 00:33:56 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-02 00:33:56 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-02 00:33:56 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-02 00:33:57 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-02 00:33:57 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-02 00:33:57 +0000
+
+
+Started GET "/posts/2" for 74.71.82.114 at 2014-09-02 00:34:11 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=2):
+  app/controllers/posts_controller.rb:67:in `set_post'
+
+
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (24.6ms)
+
+
+Started GET "/posts/1/comments" for 74.71.82.114 at 2014-09-02 00:34:16 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-02 00:34:16 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-02 00:34:16 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 74.71.82.114 at 2014-09-02 00:34:16 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-02 00:34:16 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 74.71.82.114 at 2014-09-02 00:34:16 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 74.71.82.114 at 2014-09-02 00:34:16 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-02 00:34:16 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 74.71.82.114 at 2014-09-02 00:34:16 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-02 00:34:16 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-02 00:34:16 +0000
+
+
+Started GET "/posts/1" for 74.71.82.114 at 2014-09-02 00:34:19 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 10ms (Views: 7.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-02 00:34:20 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-02 00:34:20 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-02 00:34:20 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-02 00:34:20 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-02 00:34:20 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-02 00:34:20 +0000
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-02 00:34:23 +0000
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-02 00:34:23 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-02 00:34:23 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-02 00:34:23 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-02 00:34:23 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-02 00:34:23 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-02 00:34:23 +0000
+
+
+Started GET "/posts/3/edit" for 74.71.82.114 at 2014-09-02 00:34:28 +0000
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/_form.html.erb (2.6ms)
+  Rendered posts/edit.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/posts/3" for 74.71.82.114 at 2014-09-02 00:34:37 +0000
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ObH5JzfiKqV60jC41hOQ+V4BKO/V72xPy7Z/5QkQiis=", "post"=>{"title"=>"My 3rd Post", "body"=>"Rails is a useful framework."}, "commit"=>"Update Post", "id"=>"3"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "posts" SET "title" = ?, "updated_at" = ? WHERE "posts"."id" = 3  [["title", "My 3rd Post"], ["updated_at", "2014-09-02 00:34:37.643736"]]
+  [1m[36m (19.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://ruby-137696.use1-2.nitrousbox.com/posts/3
+Completed 302 Found in 25ms (ActiveRecord: 19.7ms)
+
+
+Started GET "/posts/3" for 74.71.82.114 at 2014-09-02 00:34:37 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered posts/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-02 00:34:37 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-02 00:34:37 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-02 00:34:37 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-02 00:34:38 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-02 00:34:38 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-02 00:34:38 +0000
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-02 00:34:44 +0000
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/comments" for 74.71.82.114 at 2014-09-02 00:34:55 +0000
+Processing by CommentsController#index as HTML
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-02 00:34:55 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-02 00:34:55 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 74.71.82.114 at 2014-09-02 00:34:55 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 74.71.82.114 at 2014-09-02 00:34:55 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 74.71.82.114 at 2014-09-02 00:34:55 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-02 00:34:55 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 74.71.82.114 at 2014-09-02 00:34:55 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-02 00:34:55 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-02 00:34:55 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-02 00:34:55 +0000
+
+
+Started GET "/comments" for 74.71.82.114 at 2014-09-02 00:34:57 +0000
+Processing by CommentsController#index as HTML
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-02 00:34:57 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-02 00:34:57 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-02 00:34:57 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-02 00:34:57 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-02 00:34:57 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-02 00:34:57 +0000
+
+
+Started GET "/comments/new" for 74.71.82.114 at 2014-09-02 00:34:59 +0000
+Processing by CommentsController#new as HTML
+  Rendered comments/_form.html.erb (8.5ms)
+  Rendered comments/new.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 20ms (Views: 18.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments" for 74.71.82.114 at 2014-09-02 00:35:12 +0000
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ObH5JzfiKqV60jC41hOQ+V4BKO/V72xPy7Z/5QkQiis=", "comment"=>{"post_id"=>"1", "body"=>"Good."}, "commit"=>"Create Comment"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "comments" ("body", "created_at", "post_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "Good."], ["created_at", "2014-09-02 00:35:12.191751"], ["post_id", 1], ["updated_at", "2014-09-02 00:35:12.191751"]]
+  [1m[35m (59.1ms)[0m  commit transaction
+Redirected to http://ruby-137696.use1-2.nitrousbox.com/comments/6
+Completed 302 Found in 64ms (ActiveRecord: 59.7ms)
+
+
+Started GET "/comments/6" for 74.71.82.114 at 2014-09-02 00:35:12 +0000
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered comments/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-02 00:35:12 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-02 00:35:12 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-02 00:35:12 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-02 00:35:12 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-02 00:35:12 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-02 00:35:12 +0000
+
+
+Started GET "/comments" for 74.71.82.114 at 2014-09-02 00:35:26 +0000
+Processing by CommentsController#index as HTML
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-02 00:35:26 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-02 00:35:26 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-02 00:35:26 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-02 00:35:26 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-02 00:35:26 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-02 00:35:26 +0000
+
+
+Started GET "/comments/new" for 74.71.82.114 at 2014-09-02 00:35:28 +0000
+Processing by CommentsController#new as HTML
+  Rendered comments/_form.html.erb (2.2ms)
+  Rendered comments/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/comments" for 74.71.82.114 at 2014-09-02 00:35:38 +0000
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ObH5JzfiKqV60jC41hOQ+V4BKO/V72xPy7Z/5QkQiis=", "comment"=>{"post_id"=>"3", "body"=>"Very good."}, "commit"=>"Create Comment"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "comments" ("body", "created_at", "post_id", "updated_at") VALUES (?, ?, ?, ?)  [["body", "Very good."], ["created_at", "2014-09-02 00:35:38.037836"], ["post_id", 3], ["updated_at", "2014-09-02 00:35:38.037836"]]
+  [1m[36m (33.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://ruby-137696.use1-2.nitrousbox.com/comments/7
+Completed 302 Found in 38ms (ActiveRecord: 34.4ms)
+
+
+Started GET "/comments/7" for 74.71.82.114 at 2014-09-02 00:35:38 +0000
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = ? LIMIT 1  [["id", 7]]
+  Rendered comments/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 9ms (Views: 7.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-02 00:35:38 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-02 00:35:38 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-02 00:35:38 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-02 00:35:38 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-02 00:35:38 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-02 00:35:38 +0000
+
+
+Started GET "/comments/7" for 74.71.82.114 at 2014-09-02 00:35:59 +0000
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = ? LIMIT 1[0m  [["id", 7]]
+  Rendered comments/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-02 00:35:59 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-02 00:35:59 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-02 00:35:59 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-02 00:35:59 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-02 00:35:59 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-02 00:35:59 +0000
+
+
+Started GET "/posts/1/comments" for 74.71.82.114 at 2014-09-02 00:36:13 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-02 00:36:13 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-02 00:36:13 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-02 00:36:13 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 74.71.82.114 at 2014-09-02 00:36:13 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 74.71.82.114 at 2014-09-02 00:36:13 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 74.71.82.114 at 2014-09-02 00:36:13 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-02 00:36:13 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 74.71.82.114 at 2014-09-02 00:36:13 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-02 00:36:13 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-02 00:36:13 +0000
+
+
+Started GET "/posts/1/comments" for 74.71.82.114 at 2014-09-02 00:36:15 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-02 00:36:15 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-02 00:36:15 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-02 00:36:15 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-02 00:36:15 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-02 00:36:15 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-02 00:36:15 +0000
+  [1m[36mPost Load (2.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+
+
+Started GET "/" for 74.71.82.114 at 2014-09-02 00:39:49 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
+Completed 200 OK in 31ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-02 00:39:55 +0000
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 58ms (Views: 51.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-02 00:39:56 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-02 00:39:56 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-02 00:39:56 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-02 00:39:56 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-02 00:39:56 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-02 00:39:56 +0000
+
+
+Started GET "/posts/1/comments" for 74.71.82.114 at 2014-09-02 00:40:05 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 19ms (Views: 13.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-02 00:40:05 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-02 00:40:05 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 74.71.82.114 at 2014-09-02 00:40:05 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-02 00:40:05 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 74.71.82.114 at 2014-09-02 00:40:05 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 74.71.82.114 at 2014-09-02 00:40:05 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 74.71.82.114 at 2014-09-02 00:40:05 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-02 00:40:05 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-02 00:40:05 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-02 00:40:05 +0000
+
+
+Started GET "/posts/1/comments" for 74.71.82.114 at 2014-09-02 00:40:06 +0000
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 12ms (Views: 9.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-02 00:40:06 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-02 00:40:06 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-02 00:40:06 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-02 00:40:06 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-02 00:40:06 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-02 00:40:06 +0000
+
+
+Started GET "/" for 74.71.82.114 at 2014-09-02 00:46:47 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/action/.rvm/gems/ruby-2.1.2@blog/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (2.4ms)
+Completed 200 OK in 33ms (Views: 10.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 74.71.82.114 at 2014-09-02 00:46:54 +0000
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 58ms (Views: 51.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-02 00:46:55 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-02 00:46:55 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-02 00:46:55 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-02 00:46:55 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-02 00:46:55 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-02 00:46:55 +0000
+
+
+Started GET "/posts/new" for 74.71.82.114 at 2014-09-02 00:46:58 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (17.7ms)
+  Rendered posts/new.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 30ms (Views: 29.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 74.71.82.114 at 2014-09-02 00:46:59 +0000
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ObH5JzfiKqV60jC41hOQ+V4BKO/V72xPy7Z/5QkQiis=", "post"=>{"title"=>"", "body"=>""}, "commit"=>"Create Post"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered posts/_form.html.erb (4.9ms)
+  Rendered posts/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 17ms (Views: 13.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-02 00:46:59 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-02 00:46:59 +0000
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-02 00:46:59 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-02 00:46:59 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-02 00:46:59 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-02 00:46:59 +0000
+
+
+Started GET "/comments" for 74.71.82.114 at 2014-09-02 00:47:05 +0000
+Processing by CommentsController#index as HTML
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 21ms (Views: 14.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-02 00:47:05 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-02 00:47:05 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 74.71.82.114 at 2014-09-02 00:47:05 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-02 00:47:05 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 74.71.82.114 at 2014-09-02 00:47:05 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 74.71.82.114 at 2014-09-02 00:47:05 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-02 00:47:05 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 74.71.82.114 at 2014-09-02 00:47:05 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-02 00:47:05 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-02 00:47:05 +0000
+
+
+Started GET "/comments" for 74.71.82.114 at 2014-09-02 00:47:06 +0000
+Processing by CommentsController#index as HTML
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 43ms (Views: 41.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-02 00:47:06 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-02 00:47:06 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-02 00:47:06 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-02 00:47:06 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-02 00:47:06 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-02 00:47:06 +0000
+
+
+Started GET "/comments/new" for 74.71.82.114 at 2014-09-02 00:47:10 +0000
+Processing by CommentsController#new as HTML
+  Rendered comments/_form.html.erb (4.6ms)
+  Rendered comments/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/comments" for 74.71.82.114 at 2014-09-02 00:47:12 +0000
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ObH5JzfiKqV60jC41hOQ+V4BKO/V72xPy7Z/5QkQiis=", "comment"=>{"post_id"=>"", "body"=>""}, "commit"=>"Create Comment"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered comments/_form.html.erb (4.9ms)
+  Rendered comments/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 18ms (Views: 14.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/comments.css?body=1" for 74.71.82.114 at 2014-09-02 00:47:12 +0000
+
+
+Started GET "/assets/posts.css?body=1" for 74.71.82.114 at 2014-09-02 00:47:12 +0000
+
+
+Started GET "/assets/application.css?body=1" for 74.71.82.114 at 2014-09-02 00:47:12 +0000
+
+
+Started GET "/assets/comments.js?body=1" for 74.71.82.114 at 2014-09-02 00:47:12 +0000
+
+
+Started GET "/assets/posts.js?body=1" for 74.71.82.114 at 2014-09-02 00:47:12 +0000
+
+
+Started GET "/assets/application.js?body=1" for 74.71.82.114 at 2014-09-02 00:47:12 +0000
